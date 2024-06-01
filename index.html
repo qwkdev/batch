@@ -1,0 +1,264 @@
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			background: #080808;
+			overflow-x: hidden;
+		}
+		body::-webkit-scrollbar {
+			display: none;
+		}
+		p { margin: 0; }
+		u { }
+		.landing {
+			height: 100vh;
+			z-index: -10;
+			position: fixed;
+			top: 0;
+		}
+		.glass {
+			background: rgba(245, 245, 255, 0.112);
+			backdrop-filter: blur(20px);
+			border: 0.1vw solid rgba(255, 255, 255, 0.164);
+		}
+		.name {
+			width: 30vw;
+			height: 20vh;
+			color: #ffffff;
+			line-height: 20vh;
+			font-size: 5vw;
+			position: absolute;
+			top: 20vh;
+			border-radius: 1.5vw;
+			text-align: center;
+			font-family: "syne";
+			font-weight: 800;
+		}
+		.intro {
+			width: 30vw;
+			height: 50vh;
+			color: #ffffff;
+			line-height: 2.5vw;
+			font-size: 2.5vw;
+			position: absolute;
+			top: 30vh;
+			right: 0;
+			border-radius: 1.5vw;
+			text-align: left;
+			font-family: "syne";
+			font-weight: 500;
+		}
+		.pad {
+			margin: 0 15vw;
+		}
+		.stktop {
+			z-index: 2;
+			box-shadow: 0px 0px 1vh 1vh #080808;
+			position: fixed;
+            top: 0;
+		}
+		.marquee {
+			background-color: #080808;
+			display: flex;
+			overflow: hidden;
+			user-select: none;
+			gap: 1rem;
+			height: 5vh;
+			width: 100vw;
+		}
+		.marquee2 {
+			animation: barscroll 15s linear infinite;
+			flex-shrink: 0;
+			display: flex;
+			justify-content: space-around;
+			min-width: 100%;
+			gap: var(--gap);
+			height: 5vh;
+			color: #ffffff;
+			font-size: 2vh;
+			line-height: 5.75vh;
+			font-family: "syne";
+			font-weight: 800;
+			text-align: center;
+		}
+		@keyframes barscroll {
+			from {
+				transform: translateX(0);
+			}
+			to {
+				transform: translateX(calc(-100% - 1rem));
+			}
+		}
+		.project-row {
+			display: flex;
+			gap: 3.5vw;
+			background: #080808;
+			padding-top: 4vh;
+		}
+		.project-column {
+			display: flex;
+			gap: 3.5vw;
+			background: #080808;
+			flex-direction: column;
+		}
+		.card {
+			width: 18vw;
+			border-radius: 1.6vw;
+			padding: 1.5vw;
+			transition: 0.5s;
+			height: min-content;
+		}
+		.card:hover {
+			transform: scale(1.02);
+		}
+		.card img {
+			width: 18vw;
+			border-radius: 0.8vw;
+		}
+		.card h1 {
+			color: #ffffff;
+			font-size: 1.7vw;
+			line-height: 1.7vw;
+			margin: 1vw 0;
+			font-family: "Syne";
+			font-weight: 800;
+		}
+		.card h2 {
+			color: #ffffff;
+			font-size: 1.3vw;
+			line-height: 1.3vw;
+			margin: 0;
+			font-family: "Syne";
+			font-weight: 500;
+		}
+		.card button {
+			width: 18vw;
+			height: 3vw;
+			margin-top: 1vw;
+			border-radius: 0.8vw;
+			font-size: 1vw;
+			padding: 0;
+			color: #ffffff;
+			transition: 0.3s;
+		}
+		.card button:hover {
+			transform: scale(1.04);
+		}
+		.card svg {
+			display: block;
+			width: 1vw;
+			height: 1vw;
+			position: absolute;
+			top: 0.93vw;
+			right: 35%;
+		}
+		.card p {
+			position: absolute;
+			top: 0.8vw;
+			left: 32%;
+		}
+		.bgg1 { background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff, #ff00ff, #00ffff); }
+		.bgg2 { background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #00ffff, #ff00ff); }
+		.gbtn {
+			background-size: 400%;
+			border: none;
+			width: 25vw;
+			height: 15vh;
+			position: relative;
+			animation: gbtna 16s linear infinite;
+			transition: .2s;
+			border-radius: 0.5vw;
+		}
+		@keyframes gbtna {
+			0% { background-position: 0%; }
+			100% { background-position: 400%; }
+		}
+		.gbtnb {
+			background: #000000;
+			border: none;
+			width: 25vw;
+			height: calc(15vh - 0.3vw);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			font-size: 3vw;
+			color: #ffffff;
+			line-height: calc(14.5vh - 0.3vw);
+			transition: .4s;
+			border-radius: 0.5vw;
+		}
+		.gbtn:hover {
+			transform: scale(1.1);
+		}
+		.gbtnb:hover {
+			background: #00000000;
+		}
+		.links {
+			width: 70vw;
+			display: flex;
+			padding: 4vw 0;
+			justify-content: space-around;
+		}
+		.copyright {
+			width: 20vw;
+			font-size: .7vw;
+			font-family: "syne";
+			line-height: .9vw;
+			color: #707075;
+            text-align: center;
+            margin: 2vw 40vw;
+		}
+	</style>
+</head>
+<body>
+	<div class="stktop marquee">
+        <!-- <p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p> -->
+		<div class="marquee2"><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p></div>
+		<div class="marquee2"><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p><p>batch</p><p>&#10022;</p><p>pranks</p><p>&#10022;</p></div>
+	</div>
+	<div style="margin-top: 5vh; background: #080808;">
+		<div class="pad project-row">
+			<div class="project-column">
+				<div class="glass card">
+					<img src="https://raw.githubusercontent.com/qwkdev/batch/main/img/cmd.jpg">
+					<h1>CMD</h1>
+					<h2>Fully working <u>unblocked</u> command prompt</h2>
+					<a href="https://raw.githubusercontent.com/qwkdev/batch/main/batch/unblocked-cmd.bat" dowload><button class="glass"><p>Download</p><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></button></a>
+				</div>
+				<div class="glass card">
+					<img src="https://raw.githubusercontent.com/qwkdev/batch/main/img/volume.png">
+					<h1>Notif Spam</h1>
+					<h2>This will <u>spam</u> the windows notification sound</h2>
+					<a href="https://raw.githubusercontent.com/qwkdev/batch/main/batch/notif-spam.bat" download><button class="glass"><p>Download</p><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></button></a>
+				</div>
+			</div>
+			<div class="project-column">
+				<div class="glass card">
+					<img src="https://raw.githubusercontent.com/qwkdev/batch/main/img/matrix.jpg">
+					<h1>PC Crasher</h1>
+					<h2>Crashes <u>ANY</u> computer while also making it look like you're getting <u>hacked</u><br>Is easily fixed on restart</h2>
+					<a href="https://raw.githubusercontent.com/qwkdev/batch/main/batch/crash.bat" download><button class="glass"><p>Download</p><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></button></a>
+				</div>
+				<div class="glass card">
+					<img src="https://raw.githubusercontent.com/qwkdev/batch/main/img/storage.png">
+					<h1>Storage Filler</h1>
+					<h2>Fills storage with tons of empty folders<br><br><u>WARNING</u>: This will likely cause <u>SERIOUS DAMAGE</u> to the computer</h2>
+					<a href="https://raw.githubusercontent.com/qwkdev/batch/main/batch/fill-storage.bat" download><button class="glass"><p>Download</p><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></button></a>
+				</div>
+			</div>
+			<div class="project-column">
+				<div class="glass card">
+					<!-- <img src="https://raw.githubusercontent.com/qwkdev/batch/main/img/"> -->
+					<h1>Russian Roulette</h1>
+					<h2>COMING <u>SOON</u>...</h2>
+					<!-- <a href="https://raw.githubusercontent.com/qwkdev/batch/main/batch/" download><button class="glass"><p>Download</p><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg></button></a> -->
+				</div>
+			</div>
+		</div>
+		<div class="copyright">DISCLAIMER<br>By using any of the provided programs, you acknowledge and accept <u>FULL</u> responsibility for <u>ANY</u> potential <u>LOSS</u> of data or <u>DAMAGE</u> to your system, and release the author from <u>ANY</u> and <u>ALL</u> liability arising from its use.</div>
+	</div>
+</body>
